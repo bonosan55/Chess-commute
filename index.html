@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#1f2933">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="icon" href="icon.svg">
+<link rel="stylesheet" href="style.css">
+<title>通勤チェス</title>
+</head>
+<body>
+<header>
+  <div id="status">エンジン読み込み中…</div>
+  <div id="myrate"></div>
+</header>
+
+<div id="oppbar"><span id="oppname"></span></div>
+<div id="board" aria-label="チェス盤"></div>
+<div id="plybar"><span id="meta"></span></div>
+
+<section id="controls">
+  <div class="row">
+    <label for="elo">相手の強さ <b id="eloval">1500</b> Elo</label>
+    <button id="auto" class="toggle" aria-pressed="false">自動調整 OFF</button>
+  </div>
+  <input type="range" id="elo" min="1320" max="3190" step="1" value="1500">
+  <div class="row small"><span id="elomin"></span><span id="elomax"></span></div>
+  <div class="row btns">
+    <button id="new">新規対局</button>
+    <button id="undo">1手戻す</button>
+    <button id="flip">反転</button>
+    <button id="resign">投了</button>
+  </div>
+  <div class="row small">
+    <label><input type="checkbox" id="hint"> 最終手を表示</label>
+    <label>持ち時間/手 <select id="mt">
+      <option value="300">0.3秒</option><option value="800" selected>0.8秒</option><option value="2000">2秒</option>
+    </select></label>
+  </div>
+  <div id="log"></div>
+</section>
+
+<div id="dialog" hidden><div class="box"><div id="dtitle"></div><div id="dbody"></div></div></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>
